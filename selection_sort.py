@@ -1,21 +1,24 @@
 #User function Template for python3
+#User function Template for python3
 
 class Solution: 
     def select(self, arr, i):
         self.min=arr[i]
-        for j in arr[i+1:]:
-            if j < self.min :
-                self.min=j
-        return self.min
+        self.index=i
+        for j in range(n-i-1):
+            temp=j+i+1
+            if arr[temp] < self.min :
+                self.min=arr[temp]
+                self.index=temp
+        return self.min,self.index
     
     def selectionSort(self, arr,n):
         for i in range(n):
-            sorted_arr=arr[0:i]
-            unsorted_arr=arr[i:]
-            self.min=self.select(arr,i)
-            unsorted_arr.remove(self.min)
-            sorted_arr.append(self.min)
-            arr=sorted_arr+unsorted_arr
+            self.min,self.index=self.select(arr,i)
+            del arr[self.index]
+            arr.insert(i,self.min)
+
+
             
             
 
