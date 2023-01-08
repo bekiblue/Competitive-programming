@@ -18,14 +18,14 @@ import sys
 def countingValleys(steps, path):
     level=0
     count=0
-    for i in path:
-        if i == 'D' and level==0 :
-            count+=1
-            
+    for i in path:     
         if i == 'U':
             level+=1 
-        elif i == 'D' :
-             level-=1
+        else :
+            if level==0:
+                count+=1
+               
+            level-=1
 
     return count
 if __name__ == '__main__':
