@@ -1,16 +1,22 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        ans=[]
-        for i in range(len(nums1)):
-            ans.append(-1)
-            for j in range(len(nums2)):
-                if nums2[j]==nums1[i]:
-                    for z in nums2[j+1:]:
-                        if z>nums1[i]:
-                            ans[i]=z
-                            break
-                    break
-        return ans
+        stack=[]
+        next_greatest={}
+        for num in nums2:
+            while stack and stack[-1]<num:
+                next_greatest[stack.pop()]=num
+            stack.append(num)
+        for num in stack:
+            next_greatest[num]=-1
+        for idx in range(len(nums1)):
+            nums1[idx]=next_greatest[nums1[idx]]
+        
+        return nums1
+                
+
+        
+
+        
                 
 
         
