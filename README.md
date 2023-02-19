@@ -1,6 +1,6 @@
 # Competitive-programming
 
-Competitive-programming is a repository for solutions to problems on various coding platforms.
+Competitive-programming is a repository for solutions to algorithm problems on different platforms.
 ## Platforms
 1. [LeetCode](https://leetcode.com)
 2. [HackerRank](https://www.hackerrank.com)
