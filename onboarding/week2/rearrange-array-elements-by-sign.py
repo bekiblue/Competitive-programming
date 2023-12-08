@@ -7,8 +7,8 @@ class Solution:
                 positives.append(num)
             else:
                 negatives.append(num)
-        answer=[0]*len(nums)
+        answer=[]
         for index in range(len(positives)):
-            answer[2*index]=positives[index]
-            answer[2*index+1]=negatives[index]
+            answer.append(positives[index])
+            answer.append(negatives[index])
         return answer
