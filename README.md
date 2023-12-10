@@ -1,4 +1,4 @@
-# Competitive-programming
+#  Competitive-programming
 
 Competitive-programming is a repository for solutions to algorithm problems on different platforms.
 ## Platforms:
