@@ -4,12 +4,9 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         for row in range(len(matrix)):
-            for col in range(row,len(matrix[0])):
+            for col in range(row+1,len(matrix[0])):
                 matrix[row][col],matrix[col][row]=matrix[col][row],matrix[row][col]
-            left,right=0,len(matrix[0])-1
-            while left<right:
-                matrix[row][left],matrix[row][right]=matrix[row][right],matrix[row][left]
-                left+=1
-                right-=1
-
+        for row in range(len(matrix)):
+            for col in range(len(matrix[0])//2):
+                matrix[row][col],matrix[row][~col]=matrix[row][~col],matrix[row][col]
         
