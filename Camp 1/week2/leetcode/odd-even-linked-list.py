@@ -20,25 +20,9 @@ class Solution:
                 cur_odd=cur_odd.next
             cur=cur.next
             pos+=1
-        cur_odd.next=None
+        cur_odd.next=even.next
         cur_even.next=None
-        answer=ListNode()
-        cur=answer
-        odd=odd.next
-        even=even.next
-        while odd or even:
-            if odd:
-                cur.next=odd
-                odd=odd.next
-            else:
-                cur.next=even
-                even=even.next
-            cur=cur.next
-        cur.next=None
-        return answer.next
-        
-
-
+        return odd.next
 
         
 
