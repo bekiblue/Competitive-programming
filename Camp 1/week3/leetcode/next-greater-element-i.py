@@ -1,19 +1,13 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        stack=[]
-        next_greatest={}
-        for num in nums2:
-            while stack and stack[-1]<num:
-                next_greatest[stack.pop()]=num
-            stack.append(num)
-        for num in stack:
-            next_greatest[num]=-1
-        for idx in range(len(nums1)):
-            nums1[idx]=next_greatest[nums1[idx]]
-        
-        return nums1
-                
-
-        
-
-        
+        decreasing=[]
+        next_greater=defaultdict(lambda :-1)
+        for index,num in enumerate(nums2):
+            while decreasing and num > nums2[decreasing[-1]]: # Top of the stack
+                # Save the next greater of the top element in the map to be num
+                popped=nums2[decreasing.pop()] 
+                next_greater[popped]=num
+            # Push the index to the decreasing stack
+            decreasing.append(index)
+        answer=[ next_greater[num] for num in nums1]
+        return answer         
