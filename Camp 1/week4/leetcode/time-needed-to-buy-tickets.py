@@ -1,17 +1,13 @@
 class Solution:
     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
-        ticket_left=tickets[k]
-        tickets[k]="p"
-        tickets=deque(tickets)
         time=0
-        while ticket_left:
-            val=tickets.popleft()
-            if val != "p":
-                val-=1
+        desire=tickets[k]
+        for index,ticket in enumerate(tickets):
+            if index <= k :
+                time+=min(ticket,desire)
             else:
-                ticket_left-=1
-            if val != 0:
-                tickets.append(val)
-            time+=1
+                time+=min(ticket,desire-1)
         return time
+
+
 
